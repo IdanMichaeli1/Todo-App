@@ -1,8 +1,8 @@
-import TodoForm from "./components/TodoForm";
-import TodoList from "./components/TodoList";
-import "./style.css";
+import TodoForm from "./TodoForm";
+import TodoList from "./TodoList";
+import "../style.css";
 import { useState, useEffect } from "react";
-import api from "./api/api";
+import api from "../api/api";
 
 function App() {
   const [itemsList, setItemsList] = useState([]);
