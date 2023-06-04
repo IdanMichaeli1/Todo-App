@@ -12,8 +12,8 @@ app.get("/todo-list", (req, res) => {
 });
 
 app.post("/todo-list", (req, res) => {
-  const item = { ...req.body, id: crypto.randomUUID(), checked: false };
-  receivedData.push(item);
+  const newItem = { ...req.body, id: crypto.randomUUID(), checked: false };
+  receivedData.push(newItem);
   res.send(receivedData);
 });
 
