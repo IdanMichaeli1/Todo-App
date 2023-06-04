@@ -14,8 +14,8 @@ function TodoItem({
   const handleSaveClick = () => {
     if (updatedTitle === "") return;
     updateItem(id, updatedTitle);
+    setUpdatedTitle(updatedTitle);
     SetIsEditing(false);
-    setUpdatedTitle("");
   };
 
   return (
