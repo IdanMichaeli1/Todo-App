@@ -27,6 +27,10 @@ function App() {
     setItemsList(await api.toggleChecked(id, checked));
   };
 
+  const updateItem = async (id, title) => {
+    setItemsList(await api.updateItem(id, title));
+  };
+
   return (
     <>
       <TodoForm onSubmit={addItem} />
@@ -34,6 +38,7 @@ function App() {
         itemsList={itemsList}
         toggleChecked={toggleChecked}
         removeItem={removeItem}
+        updateItem={updateItem}
       />
     </>
   );

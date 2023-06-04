@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 function TodoForm(props) {
-  const [item, setItem] = useState("");
+  const [title, setTitle] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (item === "") return;
-    props.onSubmit(item);
-    setItem("");
+    if (title === "") return;
+    props.onSubmit(title);
+    setTitle("");
   };
 
   return (
@@ -17,8 +17,8 @@ function TodoForm(props) {
         <input
           type="text"
           id="item"
-          value={item}
-          onChange={(e) => setItem(e.target.value)}
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
         />
       </div>
       <button className="btn">Add</button>

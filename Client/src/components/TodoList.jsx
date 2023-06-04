@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem";
 
-function TodoList({ itemsList, toggleChecked, removeItem }) {
+function TodoList({ itemsList, toggleChecked, removeItem, updateItem }) {
   return (
     <>
       <h1 className="header">To-Do List</h1>
@@ -12,6 +12,7 @@ function TodoList({ itemsList, toggleChecked, removeItem }) {
             key={item.id}
             toggleChecked={toggleChecked}
             removeItem={removeItem}
+            updateItem={updateItem}
           />
         ))}
       </ul>

@@ -28,4 +28,10 @@ const toggleChecked = (id, checked) =>
     .then(returnData)
     .catch((err) => console.error(err));
 
-export default { addItem, getItems, removeItem, toggleChecked };
+const updateItem = (id, title) =>
+  api
+    .put(`/todo-list/${id}`, { title })
+    .then(returnData)
+    .catch((err) => console.error(err));
+
+export default { addItem, getItems, removeItem, toggleChecked, updateItem };
