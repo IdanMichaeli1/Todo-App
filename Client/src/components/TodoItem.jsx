@@ -11,7 +11,8 @@ function TodoItem({
   const [updatedTitle, setUpdatedTitle] = useState(title);
   const [isEditing, setIsEditing] = useState(false);
 
-  const handleSaveClick = () => {
+  const handleSaveClick = (e) => {
+    e.preventDefault();
     if (updatedTitle === "") return;
     updateItem(id, updatedTitle);
     toggleChecked(id, false);
@@ -21,16 +22,14 @@ function TodoItem({
   return (
     <>
       {isEditing ? (
-        <form className="update-item-form">
+        <form className="update-item-form" onSubmit={handleSaveClick}>
           <input
             type="text"
             value={updatedTitle}
             id="item"
             onChange={(e) => setUpdatedTitle(e.target.value)}
           />
-          <button className="btn btn-primary" onClick={handleSaveClick}>
-            Save
-          </button>
+          <button className="btn btn-primary">Save</button>
         </form>
       ) : (
         <li className="item">
