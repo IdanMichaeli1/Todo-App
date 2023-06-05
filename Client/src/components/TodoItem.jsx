@@ -1,4 +1,5 @@
 import { useState } from "react";
+import UpdateForm from "./UpdateForm";
 
 function TodoItem({
   title,
@@ -8,29 +9,18 @@ function TodoItem({
   removeItem,
   updateItem,
 }) {
-  const [updatedTitle, setUpdatedTitle] = useState(title);
   const [isEditing, setIsEditing] = useState(false);
-
-  const handleSaveClick = (e) => {
-    e.preventDefault();
-    if (updatedTitle === "") return;
-    updateItem(id, updatedTitle);
-    toggleChecked(id, false);
-    setIsEditing(false);
-  };
 
   return (
     <>
       {isEditing ? (
-        <form className="update-item-form" onSubmit={handleSaveClick}>
-          <input
-            type="text"
-            value={updatedTitle}
-            id="item"
-            onChange={(e) => setUpdatedTitle(e.target.value)}
-          />
-          <button className="btn btn-primary">Save</button>
-        </form>
+        <UpdateForm
+          title={title}
+          id={id}
+          toggleChecked={toggleChecked}
+          updateItem={updateItem}
+          setIsEditing={setIsEditing}
+        />
       ) : (
         <li className="item">
           <label>
