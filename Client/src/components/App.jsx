@@ -3,6 +3,7 @@ import TodoList from "./TodoList";
 import "../style.css";
 import { useState, useEffect } from "react";
 import api from "../api/api";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 function App() {
   const [itemsList, setItemsList] = useState([]);
@@ -31,16 +32,26 @@ function App() {
     setItemsList(await api.updateItem(id, title));
   };
 
+  function homePage() {
+    return (
+      <>
+        <TodoForm onSubmit={addItem} />
+        <TodoList
+          itemsList={itemsList}
+          toggleChecked={toggleChecked}
+          removeItem={removeItem}
+          updateItem={updateItem}
+        />
+      </>
+    );
+  }
+
   return (
-    <>
-      <TodoForm onSubmit={addItem} />
-      <TodoList
-        itemsList={itemsList}
-        toggleChecked={toggleChecked}
-        removeItem={removeItem}
-        updateItem={updateItem}
-      />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={homePage()}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
