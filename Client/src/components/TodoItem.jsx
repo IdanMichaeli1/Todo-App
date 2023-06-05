@@ -9,13 +9,13 @@ function TodoItem({
   updateItem,
 }) {
   const [updatedTitle, setUpdatedTitle] = useState(title);
-  const [isEditing, SetIsEditing] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
 
   const handleSaveClick = () => {
     if (updatedTitle === "") return;
     updateItem(id, updatedTitle);
-    setUpdatedTitle(updatedTitle);
-    SetIsEditing(false);
+    toggleChecked(id, false);
+    setIsEditing(false);
   };
 
   return (
@@ -47,7 +47,7 @@ function TodoItem({
           </button>
           <button
             className="btn btn-primary"
-            onClick={() => SetIsEditing(true)}
+            onClick={() => setIsEditing(true)}
           >
             Update
           </button>
