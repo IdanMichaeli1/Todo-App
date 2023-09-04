@@ -75,8 +75,5 @@ The React application will run on `http://localhost:3000`.
 - To remove an item, click the "x" button.
 - You can also view a list of your to-do items.
 
-## Contributing
-
-Contributions are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
 
 **Enjoy your organized to-do list!** 📝✅
